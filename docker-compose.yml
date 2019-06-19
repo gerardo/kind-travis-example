@@ -48,8 +48,8 @@ services:
   kubernetes:
     image: bsycorp/kind:v1.14.2
     privileged: true
-    volumes:
-      - ./resolv.conf:/etc/resolv.conf
+    # volumes:
+    #   - ./resolv.conf:/etc/resolv.conf
 
   # airflow-testing:
   #   image: airflowci/incubator-airflow-ci:latest
