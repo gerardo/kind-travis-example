@@ -48,9 +48,17 @@ services:
   kubernetes:
     image: bsycorp/kind:v1.14.2
     privileged: true
+
+  airflow-testing:
+    image: airflowci/incubator-airflow-ci:latest
     depends_on:
       - postgres
       - redis
       - mongo
       - cassandra
       - rabbitmq
+      - kubernetes
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ./check_k8s.sh
