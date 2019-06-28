@@ -50,7 +50,7 @@ services:
     privileged: true
 
   airflow-testing:
-    image: airflowci/incubator-airflow-ci:latest
+    image: tutum/dnsutils
     depends_on:
       - postgres
       - redis
