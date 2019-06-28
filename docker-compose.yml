@@ -50,7 +50,7 @@ services:
     privileged: true
 
   airflow-testing:
-    image: tutum/dnsutils
+    image: tutum/curl
     depends_on:
       - postgres
       - redis
