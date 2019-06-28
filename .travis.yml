@@ -14,3 +14,4 @@ before_install:
 script:
   - docker-compose -v
   - docker-compose run airflow-testing
+  - docker-compose logs kubernetes

@@ -3,11 +3,18 @@
 set +e
 set -x
 
-until curl --fail http://kubernetes:10080/kubernetes-ready; do
-    curl http://kubernetes:10080/docker-ready
+for (( i=0; i<90; ++i)); do
+    curl --fail http://kubernetes:10080/kubernetes-ready
     curl http://kubernetes:10080/config
     sleep 1;
 done
+
+exit 0
+# until curl --fail http://kubernetes:10080/kubernetes-ready; do
+#     curl http://kubernetes:10080/docker-ready
+#     curl http://kubernetes:10080/config
+#     sleep 1;
+# done
 
 echo "Kubernetes ready - run tests!"
 curl http://kubernetes:10080/config > ./kube-config
