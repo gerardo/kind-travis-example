@@ -16,35 +16,6 @@
 
 version: "2.2"
 services:
-  postgres:
-    image: postgres:9.6
-    restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=airflow
-      - POSTGRES_DB=airflow
-
-  mongo:
-    image: mongo:3
-    restart: always
-
-  cassandra:
-    image: cassandra:3.0
-    restart: always
-
-  rabbitmq:
-    image: rabbitmq:3.7
-    restart: always
-
-  redis:
-    image: redis:5.0.1
-    restart: always
-
-  krb5-kdc-server:
-    image: godatadriven/krb5-kdc-server
-    hostname: krb5-kdc-server
-    domainname: example.com
-
   kubernetes:
     image: bsycorp/kind:v1.14.2
     privileged: true
@@ -52,11 +23,6 @@ services:
   airflow-testing:
     image: tutum/curl
     depends_on:
-      - postgres
-      - redis
-      - mongo
-      - cassandra
-      - rabbitmq
       - kubernetes
     volumes:
       - ./:/app
