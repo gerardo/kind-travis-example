@@ -48,40 +48,9 @@ services:
   kubernetes:
     image: bsycorp/kind:v1.14.2
     privileged: true
-    # volumes:
-    #   - ./resolv.conf:/etc/resolv.conf
-
-  # airflow-testing:
-  #   image: airflowci/incubator-airflow-ci:latest
-  #   init: true
-  #   environment:
-  #     - USER=airflow
-  #     - INSIDE_DOCKER_CONTAINER=true
-  #     - ADDITIONAL_PATH=~/.local/bin
-  #     - TOX_ENV
-  #     - CI
-  #     - TRAVIS
-  #     - TRAVIS_BRANCH
-  #     - TRAVIS_BUILD_DIR
-  #     - TRAVIS_JOB_ID
-  #     - TRAVIS_JOB_NUMBER
-  #     - TRAVIS_PULL_REQUEST
-  #     - TRAVIS_COMMIT
-  #     - TRAVIS_REPO_SLUG
-  #     - TRAVIS_OS_NAME
-  #     - TRAVIS_TAG
-  #     - KUBERNETES_VERSION
-  #     - KUBERNETES_HOST
-  #   depends_on:
-  #     - postgres
-  #     - mongo
-  #     - cassandra
-  #     - rabbitmq
-  #     - redis
-  #     - krb5-kdc-server
-  #     - kubernetes
-  #   volumes:
-  #     - ../../:/app
-  #     - ~/.cache/pip:/home/airflow/.cache/pip
-  #     - ~/.wheelhouse/:/home/airflow/.wheelhouse/
-  #   working_dir: /app
+    depends_on:
+      - postgres
+      - redis
+      - mongo
+      - cassandra
+      - rabbitmq
