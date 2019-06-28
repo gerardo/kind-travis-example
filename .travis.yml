@@ -3,4 +3,5 @@ services: docker
 language: minimal
 
 script:
+  - docker-compose -v
   - docker-compose run airflow-testing
