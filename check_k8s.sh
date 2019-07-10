@@ -4,9 +4,9 @@ set +e
 set -x
 
 for (( i=0; i<90; ++i)); do
-    curl --fail http://kubernetes:10080/kubernetes-ready
-    curl http://kubernetes:10080/config
-    sleep 1;
+    #curl --fail http://kubernetes:10080/kubernetes-ready
+    #curl http://kubernetes:10080/config
+    sleep 100000;
 done
 
 exit 0
